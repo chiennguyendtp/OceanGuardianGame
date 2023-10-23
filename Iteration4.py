@@ -78,11 +78,11 @@ class Player:
 
 # enemy class
 class Enemy:
-    # enemy attributes
-    def __init__(self, x, y, direction, sprite="Bottle.png"):
+    def __init__(self, x, y, direction):
         self.rect = pygame.Rect(x, y, ENEMY_SIZE, ENEMY_SIZE)
         self.direction = direction
-        self.sprite = pygame.image.load(sprite)
+        # Load enemy sprite image
+        self.sprite = pygame.image.load("Bottle.png")
 
     def move(self):
         if self.direction == 'left':
@@ -91,7 +91,7 @@ class Enemy:
             self.rect.x -= ENEMY_SPEED
 
     def draw(self):
-        screen.blit(self.sprite, (self.rect.x, self.rect.y))
+        screen.blit(self.sprite, self.rect)
 
 
 
