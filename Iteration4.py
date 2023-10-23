@@ -13,7 +13,7 @@ pygame.init()
 # Initialize PygameMixer
 pygame.mixer.init()
 #Music and Sounds
-GameMusic = pygame.mixer.music.load("BackgroundMusic.mp4")
+GameMusic = pygame.mixer.music.load("GameMusic.wav")
 pygame.mixer.music.play(-1)
 
 # Where the player moves around
@@ -89,9 +89,11 @@ class Enemy:
             self.rect.x += ENEMY_SPEED
         else:
             self.rect.x -= ENEMY_SPEED
-
+#this is not working
     def draw(self):
         screen.blit(self.sprite, self.rect)
+        
+
 
 
 
@@ -323,8 +325,9 @@ class Game:
         elif self.state == "game":
             self.player.draw()
             for enemy in self.enemies:
-                pygame.draw.rect(screen, RED, enemy.rect)
-
+                #pygame.draw.rect(screen, RED, enemy.rect)
+                screen.blit(enemy.sprite, enemy.rect)
+                pygame.display.flip()
             score_text = font.render("Score: {}".format(self.score), True, RED)
             screen.blit(score_text, (10, 10))
             time_text = font.render("Time: {:.1f}".format(max(0, TIME_LIMIT - (pygame.time.get_ticks() - self.start_time) / 1000)), True, RED)
