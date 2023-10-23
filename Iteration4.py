@@ -13,7 +13,7 @@ pygame.init()
 # Initialize PygameMixer
 pygame.mixer.init()
 #Music and Sounds
-GameMusic = pygame.mixer.music.load("BackGroundMusic.mp4")
+GameMusic = pygame.mixer.music.load("BackgroundMusic.mp4")
 pygame.mixer.music.play(-1)
 
 # Where the player moves around
